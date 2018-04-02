@@ -1,0 +1,90 @@
+<template name="talentDetailsModal">
+        <div id="talent-detail" class="modal bottom-sheet talents">
+            <div class="top-action">
+                <div class="left"><a id="close-modal" href="" class="modal-close modal-action"><i
+                        class="material-icons">close</i></a>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="head talent">
+                    <div class="image"><img src="{{profile.profilePhoto}}" alt=""></div>
+                    <div class="content">
+                        <h1>{{profile.fullName}}</h1>
+                        <p class="job-title">{{profile.overview}}</p>
+                        <ul class="info">
+                            <li>
+                                <i class="material-icons left">location_on</i>
+                                <span>{{profile.location}}</span>
+                            </li>
+                            <!--<li>-->
+                            <!--<i class="material-icons left">schedule</i>-->
+                            <!--<span>10:55 am (9.75 hrs behind)</span>-->
+                            <!--</li>-->
+                            <li>
+                                <i class="material-icons left">attach_money</i>
+                                <span>{{profile.hourlyRate}}</span>
+                            </li>
+                        </ul>
+                        <div class="rating r4-5">(4.92) 269 reviews</div>
+                        <div class="mt-10"></div>
+                        <div class="tags">
+                            {{#each profile.skills}}
+                                <a href="">{{skillName}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m9 details">
+                        <div class="block">
+                            <h3>Overview</h3>
+                            <p>{{profile.biography}}</p>
+                        </div>
+
+                    </div>
+                    <div class="col m3 aside">
+                        <div class="side-single">
+                            <h4 class="title">Total earning</h4>
+                            <p>$100K</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Jobs completed</h4>
+                            <p>25</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Hourly Rate </h4>
+                            <p>{{profile.hourlyRate}}</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Member since</h4>
+                            <p>{{formatDate createdAt 'MMM DD, YYYY'}}</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Languages</h4>
+                            <p>English, Chinese</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Worker type</h4>
+                            <p>Agency</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Response time </h4>
+                            <p>Within a few hours</p>
+                        </div>
+
+                        <div class="side-single">
+                            <h4 class="title">Availability</h4>
+                            <p>{{profile.availabilityTime}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</template>

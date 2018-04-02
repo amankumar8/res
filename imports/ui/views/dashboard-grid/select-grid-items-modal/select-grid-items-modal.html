@@ -1,0 +1,20 @@
+<template name="selectGridItemsModal">
+    <div class="modal modal-fixed-footer add-people" id="add-people-to-project">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h4> Select cards</h4>
+            </div>
+            <div style="margin-left: 40px; display: inline-grid;">
+            {{#each cards}}
+                <input type="checkbox" class="filled-in" id="{{this}}"
+                       checked="{{isChecked}}"/>
+                <label for="{{this}}">{{this}}</label>
+            {{/each}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action btn-flat" href="" id="close-modal">Close</a>
+            <a class="modal-action btn-flat" href="" id="save">Save</a>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+<template name="dashboardWorkerActivityItem">
+  <tr>
+    <td>
+      {{> assignedUsersWithPhotoAndStatus this.workerId}}
+    </td>
+    {{#each weekTimeCount}}
+      {{>dashboardWorkerActivityDay}}
+    {{/each}}
+    <td class="dashboard-worker-activity-result total">{{formatSecondsAsActivityCard totalTime}}</td>
+    <td class="dashboard-worker-activity-result cost">${{totalMoneyEarned}}</td>
+  </tr>
+</template>

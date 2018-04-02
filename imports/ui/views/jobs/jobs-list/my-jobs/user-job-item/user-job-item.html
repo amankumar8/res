@@ -1,0 +1,50 @@
+<template name="userJobItem">
+    <div class="single-job">
+        {{#if companyImage}}
+            <a href="{{pathFor 'companiesSearch' id=companyId}}" class="image tooltipped" data-position="bottom"
+               data-delay="50" data-tooltip="{{companyName}}">
+                <img src="{{companyImage}}" alt="">
+            </a>
+        {{else}}
+            <a href="{{pathFor 'companiesSearch' id=companyId}}" class="image tooltipped no-image"
+               data-position="bottom" data-delay="50"
+               data-tooltip="{{companyName}}">
+                {{companyName true}}
+            </a>
+        {{/if}}
+        <div class="content">
+            <h3><a class="modal-trigger" href="" id="view-job"> {{title}}</a></h3>
+            <div class="info one">
+                <span>Job type: <a href="">{{contractType}}</a></span>
+                <!--<span>Project stage: <a href="#">Fully specified</a></span>-->
+                <!--<span>Member since: <a href="#">Mar 19, 2015</a></span>-->
+            </div>
+            <div class="info two">
+                <span style="font-size: 15px;"><i class="material-icons left">business</i> <a href="{{pathFor 'companiesSearch' id=companyId}}">{{companyName}}</a></span>
+                <span style="font-size: 15px;"><i class="material-icons left">location_on</i> <a href="">{{workerLocation}}</a></span>
+                <span style="font-size: 15px;"><i class="material-icons left">work</i> <a href="">{{contractType}}</a></span>
+                <span style="font-size: 15px;"><i class="material-icons left">monetization_on</i> <a href="">{{salaryInString}}</a></span>
+                {{#if equityString}}
+                    <span style="font-size: 15px;"><i class="fa fa-percent tiny left" aria-hidden="true" style="margin-top: -1px;"></i> <a href="">{{equityString}}</a></span>
+                {{/if}}
+                <span style="font-size: 15px;"><i class="material-icons left">date_range</i> <a href="">{{formatDate createdAt 'MMM DD, YYYY'}}</a></span>
+            </div>
+            <div class="skills">
+                {{#if skillsIds}}
+                    {{#each skillsIds}}
+                        <a href="">{{skillName}}</a>
+                    {{/each}}
+                {{/if}}
+            </div>
+            {{#if isInvationsOrProposals}}
+                <div class="right-buttons">
+                    <a id="message-button" href="" class="btn-apply">Message</a>
+                    <a id="withdraw-button" href="" class="red-btn-shortlist">Withdraw</a>
+                </div>
+            {{else}}
+                <a href="#" class="btn-apply">Message</a>
+            {{/if}}
+
+        </div>
+    </div>
+</template>

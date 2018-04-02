@@ -1,0 +1,18 @@
+<template name="myJobs">
+    <main class="job-worker">
+        <div class="table-container">
+            <div class="row job-worker">
+                <div class="col s12 no-padding tabs-row">
+                    <ul class="tabs">
+                        <li id ="invitations" role="presentation" class="tab col s3 {{hideArrow 'invitations'}}"><a class="{{active 'invitations'}}" href="#"><span></span>Invitations ({{invitedJobsCount}})</a></li>
+                        <li id ="proposals" role="presentation" class="tab col s3 {{hideArrow 'proposals'}}"><a class="{{active 'proposals'}}" href="#"><span></span>Hired ({{hiredJobsCount}})</a></li>
+                        <li id ="activeJobs" role="presentation" class="tab col s3 {{hideArrow 'activeJobs'}}"><a class="{{active 'activeJobs'}}" href="#"><span></span>Applied jobs ({{activeJobsCount}})</a></li>
+                        <li id ="savedJobs" role="presentation" class="tab col s3 {{hideArrow 'savedJobs'}}"><a class="{{active 'savedJobs'}}" href="#"><span></span>Saved jobs({{savedJobsCount}})</a></li>
+                    </ul>
+                </div>
+
+                {{> Template.dynamic template=tab1}}
+            </div>
+        </div>
+    </main>
+</template>

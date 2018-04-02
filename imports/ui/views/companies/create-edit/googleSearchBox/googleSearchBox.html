@@ -1,0 +1,12 @@
+<template name="googleSearchBox">
+  <div class="input-field col s12">
+    <input type="text" id="address" placeholder="Enter a query" value="{{getAddress}}" disabled={{isAddressNotReady}} />
+    <label for="address"></label>
+    {{searchboxInitialization}}
+    {{#if isAllowedAndPossibleToShowMap}}
+      <div class="map-wrapper">
+        {{>googleMapWrapper name="locationMap" options=mapOptions}}
+      </div>
+    {{/if}}
+  </div>
+</template>

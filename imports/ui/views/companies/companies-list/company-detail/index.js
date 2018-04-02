@@ -1,0 +1,11 @@
+import './company-detail';
+import './company-jobs/company-jobs';
+import './company-profile/company-profile';
+import './company-teams/company-teams';
+import './company-workers/company-workers';
+import './company-workplaces/company-workplaces';
+import './info-cards/company-address-card/company-address';
+import './info-cards/company-contacts-card/company-contacts';
+import './info-cards/company-description-card/company-description';
+import './info-cards/company-info-card/company-info';
+import './info-cards/company-location-card/company-location';

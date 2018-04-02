@@ -1,0 +1,77 @@
+#rightDrawerModal {
+  .head {
+    #title {
+      font-size: 1.875rem;
+      margin-bottom: 10px;
+      border: 0;
+    }
+    .info > .input-section {
+      width: 300px;
+      margin-left: 0;
+      input {
+        font-size: 1.25rem;
+        border: 0;
+        margin-bottom: 10px;
+        height: 25px;
+      }
+    }
+    .tags > .chips {
+      margin: 0;
+    }
+  }
+  .details {
+    textarea {
+      min-height: 300px;
+      font-size: 1rem;
+      border: none;
+      resize: none;
+    }
+  }
+  .aside {
+    .side-single:first-child, .side-single:nth-child(4) {
+      position: relative;
+      .dropdown-button {
+        display: block;
+      }
+    }
+    .side-single:nth-child(2), .side-single:nth-child(3) {
+      label {
+        width: 100%;
+      }
+    }
+    .side-single.create-edit-salary {
+      margin-bottom: 100px;
+    }
+    .side-single:nth-child(3) {
+      label[for="salaryMonthlyRate"], label[for="salaryHourlyRate"], label[for="salaryFixedPrice"] {
+        top: 40px;
+        left: 0;
+      }
+      label.active {
+        font-size: initial;
+        transform: initial;
+      }
+      #salaryMonthlyRate, #salaryHourlyRate, #salaryFixedPrice {
+        border: 0;
+        margin-bottom: 0;
+      }
+      .col {
+        width: 140%;
+      }
+    }
+    .side-single:nth-child(4), .side-single:nth-child(5) {
+      input {
+        border: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.modal {
+  z-index: 1004 !important;
+}
+
+.modal-overlay {
+  z-index: 1003 !important;
+}

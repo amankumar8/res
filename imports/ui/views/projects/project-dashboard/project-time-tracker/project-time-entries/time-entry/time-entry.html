@@ -1,0 +1,39 @@
+<template name="projectTimeEntry">
+    <li>
+        <div class="collapsible-header">
+            <div class="col m4 s12 pl-0">
+                <i class="material-icons more">expand_more</i>
+                <i class="material-icons less">expand_less</i>
+                <a href="#" class="left">{{taskNameKey.name}}</a>
+                <a href="#" class="right">{{taskNameKey.key}}</a>
+            </div>
+            <div class="col m8 s12">
+                {{#unless isEditing}}
+                    <a href="#" class="left">{{totalEarned}}</a>
+                    <span class="right">
+                                            <a href="#"><strong>{{formatSecondsAsTimeTask
+                                                    entryTimeTracked}}</strong></a>
+                                            <a href="" class="ml-50">{{formatDate startDate 'HH:mm'}}-{{formatDate
+                                                    endDate 'HH:mm'}}</a>
+                                            <span class="right edit"><a href="#" class="material-icons"
+                                                                        id="edit-time-entry">edit</a></span>
+                                        </span>
+                {{else}}
+                    <a href="#" class="left">{{totalEarned}}</a>
+                    <span class="right" style="display: inline-flex;"><a href="#"><strong>{{formatSecondsAsTimeTask
+                            entryTimeTracked}}</strong></a>
+                        {{>timeEntryEdit onEditChangeCb=onEditChangeCb entry=this}}
+                    </span>
+                {{/unless}}
+            </div>
+        </div>
+        <div class="collapsible-body">
+                  <span class="activity level-2"><label>Activity:</label>
+                    <i></i><i></i><i></i><i></i><i></i>
+                  </span>
+            <span><label>Screenshots:</label> <a href="#">{{screenShotsCount}}</a></span>
+            <span class="right delete"><a href="#" class="material-icons"
+                                          id="delete-time-entry">delete</a></span>
+        </div>
+    </li>
+</template>

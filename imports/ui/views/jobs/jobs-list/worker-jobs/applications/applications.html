@@ -1,0 +1,43 @@
+<template name="applications">
+    <div id="applications" class="col s12 no-padding">
+        <div class="tab-body">
+            <div class="search-filter row">
+                <div class="col m6 s12 no-padding">
+                    <!-- Company Trigger -->
+                    <a class='dropdown-button' href='#' data-activates='company1' data-beloworigin="true">Name</a>
+                    <a class='dropdown-button' href='#' data-activates='salary-rate' data-beloworigin="true">Hourly rate</a>
+                    <a class='dropdown-button' href='#' data-activates='average-rating' data-beloworigin="true">Average
+                        rating</a>
+
+                    <!-- Company Structure -->
+                    <ul id='company1' class='dropdown-content company1-sort-applications'>
+                        <li id="desc"><a href="">A-Z</a></li>
+                        <li id="asc"><a href="">Z-A</a></li>
+                    </ul>
+                    <!-- Company Structure -->
+                    <ul id='salary-rate' class='dropdown-content salary-sort-applications'>
+                        <li id="desc"><a href="">High to low</a></li>
+                        <li id="asc"><a href="">Low to high</a></li>
+                    </ul>
+                    <!-- Rating Structure -->
+                    <ul id='average-rating' class='dropdown-content rating-sort-applications'>
+                        <li id="desc"><a href="">High to low</a></li>
+                        <li id="asc"><a href="">Low to high</a></li>
+                    </ul>
+                </div>
+                <div class="col m6 s12 no-padding">
+                    <input id="job-title" class="search" type="text" name="" value="" placeholder="Search">
+                </div>
+            </div>
+            {{#if users}}
+                {{#each users}}
+                    {{>workerJobItem}}
+                {{/each}}
+            {{else}}
+                <div style="text-align: center;">
+                    No jobs found matching criteria
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>

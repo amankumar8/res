@@ -1,0 +1,15 @@
+<template name="contractEditHistoryTab">
+  <div class="contractHistoryDetails">
+    <h5>Contact status change records</h5>
+
+    <ul class="collection">
+      {{#if areStatusesPresent}}
+        {{#each statuses}}
+          <li class="collection-item">{{name}} ({{startDate}} - {{endDate}})</li>
+        {{/each}}
+      {{else}}
+        <li class="collection-item">No records present</li>
+      {{/if}}
+    </ul>
+  </div>
+</template>

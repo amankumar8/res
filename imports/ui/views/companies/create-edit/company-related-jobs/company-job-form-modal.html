@@ -1,0 +1,22 @@
+<template name="companyJobFormModal">
+  <div class="modal jobFormModal">
+    <div class="modal-content">
+      <div class="col s12">
+        {{> companyFormJobSearch getElement=supplyGetElement companyId=getCompanyId}}
+      </div>
+      <div class="input-container">
+        <div class="job-title">{{getJobTitle}}</div>
+        <div class="applicants-count">{{getApplicantsCount}}</div>
+        <div class="status">{{getStatus}}</div>
+        <div class="created-at">{{getCreatedAt}}</div>
+        <div class="expire-at">{{getExpireAt}}</div>
+        <div class="views-count">{{getViewsCount}}</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-large btn-light-grey cancel">Cancel</button>
+      <button class="btn-large btn-light-grey clear">Clear</button>
+      <button class="btn-large btn-light-grey add">Add contact</button>
+    </div>
+  </div>
+</template>

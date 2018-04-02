@@ -1,0 +1,60 @@
+<template name="projectItem">
+    <div class="vz-card-item col s12 m6 l4">
+        <div class="workplace-item">
+
+            <div class="vz-workplace-btn"><a class="btn-floating"><i class="material-icons">check</i></a></div>
+            <div class="card vz-workplace hoverable">
+                <div class="card-content">
+
+                    <div class="top-content">
+                        <span class="card-title">{{name}}</span>
+                    </div>
+
+                    <div class="card-description-container">
+                        <span class="card-description">
+                             <span>{{description}}</span>
+                        </span>
+                    </div>
+
+                    <div class="card-icon-list">
+                        <ul>
+                            <li><a href="{{pathFor 'assignUsersToProject' id=this._id}}">
+                                <i class="material-icons tooltipped"
+                                   data-tooltip="Assign users">share</i></a></li>
+                            {{#if canEditProject}}
+                                <li><a href="{{pathFor 'assignTeamToProject' id=this._id}}">
+                                    <i class="material-icons tooltipped"
+                                       data-tooltip="Assign team">group_work</i></a></li>
+                                <li><a href="{{pathFor 'editProject' id=this._id}}">
+                                    <i class="material-icons tooltipped"
+                                       data-tooltip="Edit project">settings</i></a></li>
+                                <li><a href="#" class="archive-project-button">
+                                    <i class="material-icons tooltipped"
+                                       data-tooltip="Archive project">delete</i></a></li>
+                            {{/if}}
+                            <li class="right"><a href="{{pathFor 'viewProjectTimeEntries' id=this._id}}">
+                                <i class="material-icons tooltipped"
+                                   data-tooltip="View project time entries">play_arrow</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-action card-footer-container">
+                    <div class="row no-margin valign-wrapper card-footer-content">
+                        <a href="#">
+                            <i class="material-icons tooltipped attach-icon"
+                               data-tooltip="Attach file">attachment</i>
+                        </a>
+                        <div class="">
+                            <span class="project-tag">{{projectKey}}</span>
+                            {{#each tags}}
+                                <span class="project-tag">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,46 @@
+<template name="jobCreateEditModalAside">
+    {{#unless isUserUnderCompany}}
+        <div class="side-single">
+            <h4 class="title">Company</h4>
+            {{> searchDropdownSingleChoice companySearchParams}}
+            <p>{{companyCountry}}</p>
+        </div>
+    {{/unless}}
+    <div class="side-single">
+        <h4 class="title">Job Type</h4>
+        <input type="radio" name="contract-type" value="Full-time" id="full-time"
+               checked="{{isContractTypeChecked 'Full-time'}}"/>
+        <label for="full-time">Full time</label>
+        <input type="radio" name="contract-type" value="Part-time" id="part-time"
+               checked="{{isContractTypeChecked 'Part-time'}}"/>
+        <label for="part-time">Part time</label>
+        <input type="radio" name="contract-type" value="Contract" id="contract"
+               checked="{{isContractTypeChecked 'Contract'}}"/>
+        <label for="contract">Contract</label>
+        <input type="radio" name="contract-type" value="Internship" id="internship"
+               checked="{{isContractTypeChecked 'Internship'}}"/>
+        <label for="internship">Internship</label>
+    </div>
+    <div class="side-single create-edit-salary">
+        <h4 class="title">Salary</h4>
+        <input type="radio" name="salary-type" value="Annual" id="annual" checked="{{isSalaryTypeChecked 'Annual'}}"/>
+        <label for="annual">Annually</label>
+        <input type="radio" name="salary-type" value="Monthly" id="monthly"
+               checked="{{isSalaryTypeChecked 'Monthly'}}"/>
+        <label for="monthly">Monthly</label><br>
+        <input type="radio" name="salary-type" value="Hourly" id="hourly" checked="{{isSalaryTypeChecked 'Hourly'}}"/>
+        <label for="hourly">Hourly</label>
+        <input type="radio" name="salary-type" value="Fixed-price" id="fixed-price"
+               checked="{{isSalaryTypeChecked 'Fixed-price'}}"/>
+        <label for="fixed-price">Fixed price</label>
+        <input type="radio" name="salary-type" value="Undisclosed" id="undisclosed"
+               checked="{{isSalaryTypeChecked 'Undisclosed'}}"/>
+        <label for="undisclosed">Undisclosed</label>
+        {{> Template.dynamic template=getTemplateAccordingToSalaryType data=getSalary}}
+    </div>
+    <div class="side-single">
+        <h4 class="title">Equity</h4>
+        <input type="number" id="equity" step="0.01" placeholder="Enter equity" value="{{getEquity}}"/>
+        <label for="equity"></label>
+    </div>
+</template>

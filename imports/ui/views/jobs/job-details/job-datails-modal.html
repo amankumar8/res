@@ -1,0 +1,81 @@
+<template name="jobDetailsModal">
+    <div id="job-detail" class="modal bottom-sheet">
+        <div class="top-action">
+            <div class="left"><a id="close-modal" href="" class="modal-close modal-action"><i
+                    class="material-icons">close</i></a></div>
+        </div>
+        <div class="modal-content">
+            <div class="head">
+                {{#if companyImage jobInfo}}
+                    <div class="image">
+                        <img src="{{companyImage jobInfo}}" alt="">
+                    </div>
+                {{else}}
+                    <div class="image no-image">
+                        {{companyName true jobInfo}}
+                    </div>
+                {{/if}}
+                <h1>{{jobInfo.title}}</h1>
+                <ul class="info" style="display: -webkit-inline-box;">
+                    <li>
+                        <i class="material-icons left">location_on</i>
+                        <div class="info">
+                            <span>{{workerLocation}}</span>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                    <!--<i class="material-icons left">folder_open</i>-->
+                    <!--<div class="info">-->
+                    <!--<span>UI Design</span>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <li>
+                        <i class="material-icons left">date_range</i>
+                        <div class="info">
+                            <span>{{formatDate createdAt 'DD MMM, YYYY'}}</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tags">
+                    {{#each skillsIds}}
+                        <a href="">{{skillName}}</a>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m9 details">
+                    <div class="block">
+                        <pre style="white-space: pre-wrap;">{{jobInfo.description}}</pre>
+                    </div>
+                </div>
+                <div class="col m3 aside">
+                    <div class="side-single">
+                        <h4 class="title">Company</h4>
+                        <p><a href="{{pathFor 'companiesSearch' id=companyInfo._id}}" id="company-name" style="color: inherit;">{{companyInfo.name}}</a><br>
+                            {{companyInfo.location.country}} </p>
+                        <div class="rating r3-5"></div>
+                    </div>
+                    <div class="side-single">
+                        <h4 class="title">Job type</h4>
+                        <p>{{jobInfo.contractType}}</p>
+                    </div>
+
+                    <div class="side-single">
+                        <h4 class="title">Total applicants</h4>
+                        <p>{{applicantsCount jobInfo}}</p>
+                    </div>
+                    <div class="side-single">
+                        <h4 class="title">Job salary</h4>
+                        <p>{{salary jobInfo}}</p>
+                    </div>
+
+                    <!--<div class="side-single">-->
+                    <!--<h4 class="title">Project stage</h4>-->
+                    <!--<p>Fully Specified</p>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

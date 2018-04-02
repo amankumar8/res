@@ -1,0 +1,16 @@
+<template name="workersDashboard">
+    <div class="dashboard-general-content">
+        {{#if companyOwner}}
+            {{> dashboardCardSpendingsEarnings title="Spendings" content="spendingsEarningsList"}}
+        {{/if}}
+        {{#if companyOwnerOrAdmin}}
+            {{> dashboardCardActive title="Working on" content="usersActiveTasks"}}
+        {{/if}}
+        {{#if companyOwnerOrAdminOrManager}}
+            {{> dashboardCardInReviewTasks title="In-review" content="usersInReviewTasks"}}
+        {{/if}}
+        {{#if companyOwnerOrAdmin}}
+            {{> dashboardCard title="Worker activity" content="dashboardWorkerActivityList"}}
+        {{/if}}
+    </div>
+</template>

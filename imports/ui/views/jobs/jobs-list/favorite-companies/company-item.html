@@ -1,0 +1,33 @@
+<template name="companyItemNew">
+    <div class="main-companies">
+        <div class="row search-single company">
+            <div class="col s12 pr">
+                {{#if logoUrl}}
+                    <div class="image">
+                        <img src="{{logoUrl}}" alt="">
+                    </div>
+                {{else}}
+                    <div class="image no-image">
+                        {{companyName}}
+                    </div>
+                {{/if}}
+                <div class="content">
+                    <h3><a id="view-company" href="">{{name}}</a></h3>
+                    <div class="info one">
+                        <!--<span>Category: <a href="#">Software</a></span>-->
+                        <span>Open jobs: <a href="#">{{relatedJobsCount}}</a></span>
+                    </div>
+                    {{#if description}}
+                        <p>{{companyDescription}}</p>
+                    {{/if}}
+                    <div class="info two">
+                        <span><i class="material-icons left">location_on</i> <a href="#">{{companyLocation}}</a></span>
+                        <!--<span><i class="material-icons left">star</i> <a href="#">4.96</a></span>-->
+                        <span><i class="material-icons left">public</i> <a href="{{website.link}}" target="_blank">{{website.name}}</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

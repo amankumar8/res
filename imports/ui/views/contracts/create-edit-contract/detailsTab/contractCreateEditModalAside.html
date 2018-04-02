@@ -1,0 +1,41 @@
+<template name="contractCreateEditModalAside">
+  <div>
+    <div class="side-single">
+      <h4 class="title" >User</h4>
+      {{> searchDropdownSingleChoice userSearchParams}}
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Company</h4>
+      {{> searchDropdownSingleChoice companySearchParams}}
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Project</h4>
+        <div class="tags">
+            {{> projectsChip data=getCurrentProjects projectSearchParams=projectSearchParams}}
+        </div>
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Role</h4>
+      <input type="radio" name="user-role" id="project-worker" value="project-worker" checked="{{isUserRoleChecked 'project-worker'}}" />
+      <label for="project-worker">Worker</label>
+      <input type="radio" name="user-role" id="project-observer" value="project-observer" checked="{{isUserRoleChecked 'project-observer'}}" />
+      <label for="project-observer">Observer</label>
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Week hours limit</h4>
+      <input type="number" id="week-hours-limit" placeholder="40" value="{{getHoursLimit}}" min="0" max="100" />
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Payment type</h4>
+      <select id="payment-type">
+        <option value="hourly" selected="{{isPaymentTypeSelected 'hourly'}}">Hourly</option>
+        <option value="monthly" selected="{{isPaymentTypeSelected 'monthly'}}">Monthly</option>
+        <option value="fixed" selected="{{isPaymentTypeSelected 'fixed'}}">Fixed</option>
+      </select>
+    </div>
+    <div class="side-single">
+      <h4 class="title" >Payment rate</h4>
+      <input type="number" id="payment-rate" placeholder="5" value="{{getPaymentRate}}" min="0" max="999999" />
+    </div>
+  </div>
+</template>

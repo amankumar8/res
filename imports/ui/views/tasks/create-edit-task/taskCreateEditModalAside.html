@@ -1,0 +1,16 @@
+<template name="taskCreateEditModalAside">
+  <div>
+    <div class="side-single">
+      <h4 class="title">Project</h4>
+      {{> searchDropdownSingleChoice projectSearchParams}}
+    </div>
+    <div class="side-single">
+      <h4 class="title">Assigned users</h4>
+      <a class="modal-assign-users">{{assignedUsersCount}}<i class="material-icons left">person</i></a>
+    </div>
+    <div class="side-single">
+      <h4 class="title">Attachments</h4>
+      <a class="modal-attach-files">{{attachedFilesCount}}<i class="material-icons left">attachment</i></a>
+    </div>
+  </div>
+</template>

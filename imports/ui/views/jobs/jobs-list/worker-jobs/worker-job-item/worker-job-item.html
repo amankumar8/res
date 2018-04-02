@@ -1,0 +1,66 @@
+<template name="workerJobItem">
+    <div class="single-job">
+        <div class="image">
+            <img src="{{profile.photo.small}}" alt="">
+        </div>
+
+        <div class="content">
+            <h3><a class="modal-trigger" id="view-talent" href="#">{{profile.fullName}}</a></h3>
+            <p>{{profile.overview}}</p>
+            <div class="info one">
+                <span>Projects completed: <a href="">{{projectsCompleted}}</a></span>
+                <span>Available: <a href="">{{profile.availabilityTime}}</a></span>
+                <span>Hours worked: <a href="">{{hoursWorked}}</a></span>
+            </div>
+            <div class="info two">
+                <span><i class="material-icons left">location_on</i> <a href="#">{{profile.location.country}}</a></span>
+                <span><i class="material-icons left">star</i> <a href="#">4.96</a></span>
+                <span><i class="material-icons left">attach_money</i> <a href="#">{{profile.hourlyRate}}</a></span>
+                <span><i class="material-icons left">date_range</i> <a href="#">{{formatDate createdAt 'MMM DD, YYYY'}}</a></span>
+            </div>
+            <div class="skills">
+                {{#if profile.skills}}
+                    {{#each profile.skills}}
+                        <a href="">{{skillName}}</a>
+                    {{/each}}
+                {{/if}}
+            </div>
+            <a class='dropdown-button more-action' href='' data-activates='{{_id}}'
+               data-alignment="right"><i class="material-icons right">more_vert</i></a>
+            <!-- more action -->
+            <ul id='{{_id}}' class='dropdown-content'>
+                {{#if isApplications}}
+                    <li><a id="addArchived" href="#">Add to archived</a></li>
+                {{/if}}
+
+                {{#if isShortlisted}}
+                    <li><a id="addArchived" href="#">Add to archived</a></li>
+                {{/if}}
+
+                {{#if isHired}}
+                    <li><a id="addArchived" href="#">Add to archived</a></li>
+                {{/if}}
+
+                <li><a id="copyToClipboard" href="#">Copy profile link</a></li>
+            </ul>
+
+            <div class="right-buttons">
+                <a id="message-button" href="" class="red-btn-message">Message</a>
+                {{#if isApplications}}
+                    <a id="shortlist-button" href="" class="red-btn-shortlist">Shortlist</a>
+                    <a id="hire-button" href="" class="red-btn-jobs">Hire</a>
+                {{/if}}
+                {{#if isShortlisted}}
+                    <a id="hire-button" href="" class="red-btn-jobs">Hire</a>
+                {{/if}}
+                {{#if isHired}}
+                    <a id="cancel-button" href="" class="red-btn-cancel">Cancel Hire</a>
+                {{/if}}
+                {{#if isArchived}}
+                    <a id="re-hire-button" href="" class="red-btn-cancel">Re-Hire</a>
+                    <a id="send-shortlist-button" href="" class="red-btn-cancel">Send to shortlist</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

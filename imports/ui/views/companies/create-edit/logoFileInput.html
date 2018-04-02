@@ -1,0 +1,20 @@
+<template name="logoFileInput">
+  <style>
+    .outtaHere{
+      display:none;
+      position:absolute;
+      left:-10000px;
+    }
+
+    label[for="upload"] {
+      cursor:pointer;
+      color: black;
+      visibility: hidden;
+    }
+  </style>
+  <div class="input-field col s12">
+    <input type="file" id="logo" class="outtaHere" />
+    <img height="100" width="100" id="profile" src="{{getLogoUrl}}" alt="profile-image" style="margin-top: -15px;"/>
+    <label for="logo"><span>CLICK</span></label>
+  </div>
+</template>

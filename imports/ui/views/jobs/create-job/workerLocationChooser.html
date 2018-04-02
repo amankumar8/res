@@ -1,0 +1,24 @@
+<template name="workerLocationChooser">
+  <div class="input-section row">
+    <div class="col s12">
+      <select id="continent">
+        <option disabled selected value="">Select continent</option>
+        {{#each continents}}
+          <option value="{{code}}" selected="{{isContinentSelected}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <label for="continent"></label>
+    </div>
+    <div class="col s12">
+      <select id="country" disabled="{{shouldDisableCountrySelect}}">
+        <option disabled selected value="">Select country</option>
+        {{#each continentCountries}}
+          <option value="{{label}}" selected="{{isCountrySelected}}">{{label}}</option>
+        {{/each}}
+      </select>
+      <label for="country"></label>
+    </div>
+    <input type="checkbox" class="filled-in" id="notRestrictCountries" checked="{{isCountryNotRestricted}}" />
+    <label for="notRestrictCountries">Don't restrict countries</label>
+  </div>
+</template>

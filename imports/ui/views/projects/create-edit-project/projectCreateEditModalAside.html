@@ -1,0 +1,18 @@
+<template name="projectCreateEditModalAside">
+    <div>
+        <div class="side-single">
+            <h4 class="title">Project keys</h4>
+            <input type="text" id="project-key-modal" value="{{getKeys}}" maxlength="6"/>
+        </div>
+        {{#unless isCompanyAccount}}
+            <div class="side-single">
+                <h4 class="title">Company</h4>
+                {{> searchDropdownSingleChoice companySearchParams}}
+            </div>
+        {{/unless}}
+        <div class="side-single">
+            <h4 class="title">Tags</h4>
+            {{> tagsBlock tags=tags onReactiveVarSet=onReactiveVarSet}}
+        </div>
+    </div>
+</template>

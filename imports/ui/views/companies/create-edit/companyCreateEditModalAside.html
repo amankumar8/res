@@ -1,0 +1,42 @@
+<template name="companyCreateEditModalAside">
+
+  <div class="side-single">
+    <select id="employeesCountModal">
+      {{#each employeesCountOptions}}
+        <option value="{{this}}" selected="{{isEmployeesCountSelected}}">{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">VAT</h4>
+    <input type="text" id="vatModal" placeholder="Enter company VAT" value="{{getVat}}" />
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">Registration number</h4>
+    <input type="text" id="registrationNumberModal" placeholder="Enter registration number"
+           value="{{getRegistrationNumber}}" />
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">E-mail</h4>
+    <input type="email" id="emailModal" placeholder="Enter email" value="{{getEmailModal}}" />
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">Phone</h4>
+    <input type="tel" id="phoneModal" placeholder="Enter phone" value="{{getPhoneModal}}" />
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">Website</h4>
+    <input type="text" id="websiteModal" placeholder="Enter company website" value="{{getWebsite}}" />
+  </div>
+
+  <div class="side-single">
+    <h4 class="title">Year Founded</h4>
+    <input type="text" id="yearModal" placeholder="Enter company year founded" value="{{getYear}}" />
+  </div>
+
+</template>

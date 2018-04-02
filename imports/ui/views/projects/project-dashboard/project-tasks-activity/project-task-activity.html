@@ -1,0 +1,39 @@
+<template name="projectTasksActivity">
+    <main id="tasks">
+        <div class="tasks">
+            <div class="row">
+                <div class="tasks-top">
+                    {{>projectInfoLayout}}
+                    <div class="col m6 s12 assigned-users">
+                        {{#each projectAssignedUsers}}
+                            <a href="#" class="project-hastip"  title="{{profile.fullName}}"><img src="{{profile.photo.large}}" alt=""></a>
+                        {{/each}}
+                        {{#if canEditProject}}
+                            <a href="#" id="project-users" class="project-hastip" title="Add people to project"><i class="material-icons" style="margin-top: 4px;">add</i></a>
+                        {{/if}}
+                        {{#if projectAssignedUsersCount}}
+                        <a href="#" class="project-hastip" title="{{projectAssignedUsersCount}} other people working on this project">{{projectAssignedUsersCount}}+</a>
+                            {{/if}}
+                    </div>
+                </div>
+                <!-- Sub Tabs-->
+                <div class="row sub-tab">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li role="presentation" class="tab" id="all"><a id="all-link"
+                                    class="{{isTabSelected 'all'}}" href="#">All ({{allTaskCount}})</a></li>
+                            <li role="presentation" class="tab" id="assigned"><a id="assigned-link"
+                                    class="{{isTabSelected 'assigned'}}" href="#">Assigned to me ({{assignedTaskCount}})</a></li>
+                            <li role="presentation" class="tab" id="in-review"><a id="in-review-link"
+                                    class="{{isTabSelected 'in-review'}}" href="#">In review ({{reviewTaskCount}})</a>
+                            </li>
+                            <li role="presentation" class="tab" id="completed"><a id="completed-link"
+                                    class="{{isTabSelected 'completed'}}" href="#">Completed ({{completedTasksCount}})</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {{> Template.dynamic template=tab }}
+            </div>
+        </div>
+    </main>
+</template>

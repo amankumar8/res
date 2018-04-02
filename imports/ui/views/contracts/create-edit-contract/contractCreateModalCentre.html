@@ -1,0 +1,50 @@
+<template name="contractCreateModalCentre">
+
+        <div class="modal-content">
+            <div class="modal-head">
+                <h4> Add contract</h4>
+            </div>
+            <ul>
+
+                <div id="titleCentreModal">
+                    <input type="text" id="titleContractModalCentre" placeholder="Enter contract name" data-length="80" />
+                </div>
+
+                <div class="side-single">
+                    {{> searchDropdownSingleChoice userSearchParams}}
+                </div>
+                <div class="side-single">
+                    {{> searchDropdownSingleChoice companySearchParams}}
+                </div>
+                <div class="side-single">
+                    <div class="tags">
+                        {{> projectsChip data=getCurrentProjects projectSearchParams=projectSearchParams}}
+                    </div>
+                </div>
+                <div class="side-single">
+                    <input type="radio" name="user-role" id="project-worker" value="project-worker" />
+                    <label for="project-worker">Worker</label>
+                    <input type="radio" name="user-role" id="project-observer" value="project-observer" />
+                    <label for="project-observer">Observer</label>
+                </div>
+                <div class="side-single">
+                    <input type="number" id="week-hours-limit" placeholder="Enter hours per week" min="0" max="100" />
+                </div>
+                <div class="side-single">
+                    <select id="payment-type">
+                        <option value="hourly">Hourly</option>
+                        <option value="monthly" >Monthly</option>
+                        <option value="fixed">Fixed</option>
+                    </select>
+                </div>
+                <div class="side-single">
+                    <input type="number" id="payment-rate" placeholder="Enter payment rate" min="0" max="999999" />
+                </div>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action btn-flat" id="save" href="">Save</a>
+            <a class="modal-action modal-close btn-flat" href="">Close</a>
+        </div>
+
+</template>

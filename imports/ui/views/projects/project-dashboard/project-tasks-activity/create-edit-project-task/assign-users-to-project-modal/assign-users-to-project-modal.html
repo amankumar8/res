@@ -1,0 +1,65 @@
+<template name="assignUsersToProjectModal">
+    {{userRole}}
+    <div class="modal modal-fixed-footer add-people" id="add-people-to-project">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h4> Add people</h4>
+                <div class="input-field"><i class="material-icons prefix">search</i>
+                    <input type="text" placeholder="Search by name or e-mail" id="search-string">
+                </div>
+            </div>
+            <ul>
+                {{#each assignedUsers.assignedToTaskUsers}}
+                    <li class="remove" style="height: 105px !important;">
+                        <div class="row">
+                            <div class="col s12">
+
+                <span class="image">
+                    <img src="{{profile.photo.large}}">
+                </span>
+                                <span class="info">
+              <h5>{{profile.fullName}}</h5>
+              <p>{{emails.[0].address}}</p>
+                </span>
+                                {{#if mainOwner}}
+                                    <span style="font-size: 13px; position: absolute; margin-left: 15px; margin-top: 5px;">Main Owner</span>
+                                {{else}}
+                                    {{#if ownRole}}
+                                        <span style="font-size: 13px; position: absolute; margin-left: 15px; margin-top: 5px;">{{currentUserRole}}</span>
+                                    {{else}}
+                                        <div class="input-field dropdown user-project-role" style="position: absolute; margin-top: -7px; width: 80px !important;">
+                                            <select id="user-role">
+                                                {{#each projectUserPositions}}
+                                                    <option {{isUserRole roles ../_id}}  value="{{name}}">{{name}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                        {{#unless mainOwner}}
+
+                                <a class="action" href="" id="remove-user-from-project">
+                                    <span class="remove">Remove<i class="material-icons right">remove_circle_outline</i></span>
+                                </a>
+                        {{/unless}}
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+
+                {{#each assignedUsers.canBeAssignedUsers}}
+                    <li><span class="image"><img src="{{profile.photo.large}}"></span>
+                        <span class="info">
+              <h5>{{profile.fullName}}</h5>
+              <p>{{emails.[0].address}}</p></span>
+                        <a class="action" href="" id="add-user-to-project">
+                            <!--<span class="remove">Remove<i class="material-icons right">remove_circle_outline</i></span>-->
+                            <span class="add">Add<i class="material-icons right">person_add</i></span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="modal-footer"><a class="modal-action modal-close btn-flat" href="">Close</a></div>
+    </div>
+</template>

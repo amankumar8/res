@@ -1,0 +1,17 @@
+<template name="contractsList">
+    <section class="header-tabs">
+        <div class="row tabs-row">
+            <ul class="tabs">
+                <li role="presentation" class="tab {{accent 'activeContracts'}}"><a class="{{active 'activeContracts'}}" href="#">ACTIVE</a></li>
+                <li role="presentation" class="tab {{accent 'pendingContracts'}}"><a class="{{active 'pendingContracts'}}" href="#">Pending</a></li>
+                <li role="presentation" class="tab {{accent 'pausedContracts'}}"><a class="{{active 'pausedContracts'}}" href="#">PAUSED</a></li>
+                <li role="presentation" class="tab {{accent 'endedContracts'}}"><a class="{{active 'endedContracts'}}" href="#">Completed</a></li>
+            </ul>
+        </div>
+        </section>
+    <div style="margin-top: 161px;">
+        {{#if formChanged}}
+            {{> Template.dynamic template=tab}}
+        {{/if}}
+    </div>
+</template>

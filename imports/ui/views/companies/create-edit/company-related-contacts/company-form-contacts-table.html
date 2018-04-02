@@ -1,0 +1,55 @@
+<template name="companyFormContactsTable">
+  <main class="data-table">
+  <!--<div class="input-section row">-->
+    <div class="table-container">
+      <div class="row">
+        <div class="col s12">
+          <div class="table-wrapper">
+            <div class="table-header">
+              <h4 class="left">Contacts</h4>
+              <button class="btn-small btn-light-grey addContactModalButton">Add contact</button>
+              <div class="right">
+                {{> tableSearch}}
+              </div>
+            </div>
+            <table id="contacts-table" class="row-border" width="100%">
+              <thead>
+              <tr>
+                <th>
+                  First name
+                 {{> sortHeaderArrows}}
+                </th>
+                <th>
+                  Last name
+                  {{> sortHeaderArrows}}
+                </th>
+                <th>
+                  Email
+                  {{> sortHeaderArrows}}
+                </th>
+                <th>
+                  Phone
+                  {{> sortHeaderArrows}}
+                </th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              {{#each contacts}}
+                <tr>
+                  <td>{{firstName}}</td>
+                  <td>{{lastName}}</td>
+                  <td>{{email}}</td>
+                  <td>{{phone}}</td>
+                  <td><a href="#" class="removeContact"><i class="material-icons left">close</i></a></td>
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+  </main>
+</template>

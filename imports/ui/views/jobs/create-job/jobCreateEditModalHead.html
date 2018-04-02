@@ -1,0 +1,22 @@
+<template name="jobCreateEditModalHead">
+  <div>
+    <input type="text" id="title" placeholder="Enter job title" value="{{getTitle}}" data-length="80" />
+  </div>
+  <ul class="info">
+    <li>
+      <i class="material-icons left">location_on</i>
+      <div class="info">
+        <input type="radio" name="workerLocation" value="anywhere" id="anywhere" checked="{{isWorkerLocationRestrictionChosen 'anywhere'}}" />
+        <label for="anywhere">Remote (work from anywhere)</label>
+        <input type="radio" name="workerLocation" value="restricted" id="restricted" checked="{{isWorkerLocationRestrictionChosen 'restricted'}}" />
+        <label for="restricted">Remove (restricted location)</label>
+        {{#if isWorkerLocationRestricted}}
+          {{> workerLocationChooser workerLocation=getWorkerLocation}}
+        {{/if}}
+      </div>
+    </li>
+  </ul>
+  <div class="tags">
+      {{> skillsChip data=getCurrentSkills skills=getAllSkills}}
+  </div>
+</template>
