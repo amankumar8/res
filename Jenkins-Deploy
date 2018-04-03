@@ -1,0 +1,82 @@
+String appName = 'mytest'
+String rootURL = 'http://172.31.88.18'
+String appPort = 3012
+List servers = ['172.31.88.18']
+
+def notifyBuild(String buildStatus) {
+    // build status of null means successful
+    buildStatus =  buildStatus ?: 'SUCCESSFUL'
+
+    // Default values
+    def colorCode = '#FFFFFF'
+    def summary = "${buildStatus}: '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+
+    // Override default values based on build status
+    if (buildStatus == 'SUCCESSFUL') {
+        colorCode = '#36A64F'
+    } else if (buildStatus == 'FAILURE') {
+        colorCode = '#A63636'
+    }
+
+    // Send notifications
+    
+}
+
+import groovy.json.JsonSlurperClassic
+
+@NonCPS
+def jsonParse(def json) {
+    new groovy.json.JsonSlurperClassic().parseText(json)
+}
+
+try {
+    node {
+
+        deleteDir()
+	stage('Clone sources') {
+        	git url: 'https://amankumar8:toxic8988@github.com/amankumar8/res.git'
+    	}
+
+        Map appOptions = [
+                "apps": [
+                        "name"      : appName,
+                        "script"    : "node",
+                        "cwd"       : "/home/app/bundle-${appName}",
+                        "args"      : "server.js",
+                        "watch"     : "true",
+                        "merge_logs": true,
+                        "log_type"  : "json",
+			"interpreter" : "node@8.9.1",
+                        env         : [
+                                "ROOT_URL"            : rootURL,
+                                "HTTP_FORWARDED_COUNT": 1,
+                                "BIND_IP"             : "127.0.0.1",
+                                "PORT"                : appPort
+                        ]
+                ]
+        ]
+
+        def appOptionsString = new groovy.json.JsonBuilder(appOptions).toPrettyString()
+
+        writeFile(file: 'appconfig.json', text: appOptionsString)
+
+        println "Application PM2 configuration is:"
+        println appOptionsString
+
+        appOptionsString = null
+
+        for (String server : servers) {
+            println ">>> Deploying ${server}"
+	    sh("rsync -az --delete -e \"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" /var/lib/jenkins/workspace/test@script/* root@172.31.88.18:~/bundle-${appName}/")
+	    sh("rsync -az --delete -e \"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" ./* root@172.31.88.18:~/bundle-${appName}/")
+	    sh("ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app@${server} 'bash -ci \"cd ~/bundle-${appName}; npm install\"'")
+	    sh("ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app@${server} 'bash -ci \"cd ~/bundle-${appName}; fuser -k 3012/tcp | xargs kill -9; nvm use 8.9.1; node server.js > stdout.txt 2> stderr.txt &\"'")
+        }
+    }
+} catch (e) {
+    currentBuild.result = "FAILURE"
+    throw e
+} finally {
+    notifyBuild(currentBuild.result)
+}
+
