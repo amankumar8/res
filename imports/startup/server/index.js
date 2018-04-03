@@ -1,9 +1,0 @@
-import './namespace';
-import './config';
-import './dummy-documents';
-import './migrations';
-import './email';
-import './fixtures';
-import './register-api';
-import './helpers';
-import './desktop';

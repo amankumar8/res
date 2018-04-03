@@ -1,1 +1,0 @@
-import './spendings-earnings-list/spendings-earnings-list';

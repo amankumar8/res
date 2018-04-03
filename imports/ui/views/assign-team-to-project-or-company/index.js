@@ -1,1 +1,0 @@
-import './assign-team-to-project-or-company';

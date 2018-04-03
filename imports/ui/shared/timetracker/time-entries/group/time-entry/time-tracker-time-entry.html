@@ -1,9 +1,0 @@
-<template name='timeEntry'>
-    <div class="row valign-wrapper">
-        {{#unless editEntry}}
-            {{> showTimeEntry stateCb = changeStateCb entry=this}}
-        {{else}}
-            {{> editTimeEntry stateCb = changeStateCb entry=this}}
-        {{/unless}}
-    </div>
-</template>

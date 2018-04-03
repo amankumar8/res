@@ -1,53 +1,19 @@
 {
-  "name": "vezio",
+  "name": "vezio-resource-proxy",
   "version": "1.0.0",
-  "description": "Vezio",
-  "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "MONGO_URL=mongodb://localhost:27017/vezio meteor --settings config/settings/dev.json",
-    "test": "meteor test --port 3002 --driver-package practicalmeteor:mocha --settings config/settings/dev.json",
-    "coverage": "spacejam test --coverage 'out_lcovonly out_coverage out_html' --driver-package practicalmeteor:mocha-console-runner"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Vezio Team",
+  "license": "ISC",
   "dependencies": {
-    "autosize-input": "^0.4.0",
-    "babel-runtime": "^6.23.0",
-    "bcrypt": "^1.0.3",
-    "blueimp-canvas-to-blob": "^3.11.0",
-    "braintree": "^1.47.1",
-    "braintree-web": "^3.15.0",
-    "currency-codes": "^1.1.2",
-    "dropzone": "^5.1.1",
-    "fibers": "^2.0.0",
-    "gm": "1.18.1",
-    "google-auth-library": "^0.10.0",
-    "html2canvas": "^0.5.0-beta4",
-    "iban": "0.0.8",
-    "iconv-lite": "^0.4.16",
-    "imports": "^1.0.0",
-    "intl-tel-input": "^7.1.1",
-    "lodash": "^4.17.4",
-    "mandrill-api": "1.0.42",
-    "materialize": "^1.0.0",
-    "materialize-autocomplete": "^1.0.7",
-    "meteor-node-stubs": "^0.2.11",
-    "moment": "^2.18.1",
-    "moment-business-days": "^1.0.6",
-    "nouislider": "^10.1.0",
-    "parse-formdata": "^1.0.2",
-    "pdfmake": "^0.1.28",
-    "prop-types": "^15.6.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-grid-layout": "^0.16.0"
-  },
-  "engines": {
-    "node": ">=4.5.0"
-  },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "deepfreeze": "^2.0.0",
-    "sinon": "^3.2.1",
-    "sinon-chai": "^2.13.0",
-    "spacejam": "https://github.com/serut/spacejam/tarball/windows-suppport-rc4"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "morgan": "^1.9.0",
+    "superagent": "^3.8.2"
   }
 }
